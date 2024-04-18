@@ -37,4 +37,4 @@ while(True):
     stop = input('종료하시려면 네를 입력하십시오 : ')
     if stop == "네":
         break
-    
+    print()
