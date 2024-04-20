@@ -14,15 +14,21 @@ def reverse(inputfile): # 파일을 역순으로 출력하는 함수
         
 def write_md(inputfile,outfile): # 파일을 md로 작성하는 함수
     i = 0
+    outfile.write("# 사고 원인 분석 보고서\n")
     while True :
         line = inputfile.readline() # 한 줄 단위로 읽음
         if not line: #줄이 없다면
             break
-        if i == 0 :
-            outputfile.write("# " + line)
-            i+=1
-        else :
-            outputfile.write(line)
+        if line.count('start') or line.count('complete') : #출력 결과 중 문제가 되는 부분만 따로 파일로 저장한다. 
+            outfile.write("### 진행 경과\n")
+            line = line.split(",")
+            outfile.write("시간 : " + line[0])
+            outfile.write("\n내용 : " + line[2])
+        if line.count('unstable') or line.count('explosion') : #출력 결과 중 문제가 되는 부분만 따로 파일로 저장한다. 
+            outfile.write("### 사고 발생\n")
+            line = line.split(",")            
+            outfile.write("시간 : " + line[0])
+            outfile.write("\n내용 : " + line[2])
     return outfile
 
 def write_error(inputfile,outfile): # 파일중 에러문구를 찾아 따로 저장하는 함수
@@ -39,10 +45,10 @@ print("Hello Mars")
 
 try :
     inputfile = open('C:/Users/ehddn/project-x/1st_week/Q1/mission_computer_main.log', 'r')
-    outputfile = open('C:/Users/ehddn/project-x/1st_week/Q1/log_analysis.md', 'w')
-    erroroutputfile = open('C:/Users/ehddn/project-x/1st_week/Q1/error_analysis.md', 'w')
+    outputfile = open('C:/Users/ehddn/project-x/1st_week/Q1/log_analysis.md', 'w', encoding='utf-8')
+    erroroutputfile = open('C:/Users/ehddn/project-x/1st_week/Q1/error_analysis.md', 'w', encoding='utf-8')
 except FileNotFoundError :
-    print("파일이 존재하지 않습니다")
+    print('파일이 존재하지 않습니다')
 else :
     write_md(inputfile,outputfile)
     inputfile.seek(0) # 파일의 위치를 맨 위로 옮김

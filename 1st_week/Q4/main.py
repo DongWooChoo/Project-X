@@ -5,7 +5,7 @@
 # 지구의 중력 9.807m/s²
 # 화성의 중력 3.71m/s²
 
-def sphere_area(diameter, material = '유리', thickness = 1):
+def sphere_area(diameter, material = '유리', thickness = 1): #면적과 무게를 계산해주는 함수
     if material == '유리' :
         weight = 2.4
     if material == '알루미늄' :
@@ -18,7 +18,7 @@ def sphere_area(diameter, material = '유리', thickness = 1):
     print('재질 =⇒ ', material, '지름 =⇒ ',diameter, '두께 =⇒ ',thickness, '면적 =⇒ ',area, '무게 =⇒ ',dome_weight, 'kg')
     return
 
-def convert_weight(weight):
+def convert_weight(weight): #무게를 화성 기준으로 변환해주는 함수
     weight = round(weight / 9.807,3)
     weight = round(weight * 3.71,3)
     return weight
@@ -33,8 +33,8 @@ while(True):
     if diameter <= 0 :
         print('올바르지 않은 값입니다. 다시 입력하세요 ')
         continue
-    sphere_area(diameter,material) # 지름은 값 추가시 파리미터 추가
-    stop = input('종료하시려면 네를 입력하십시오 : ')
-    if stop == "네":
+    sphere_area(diameter,material) # 두께는 값 추가시 파리미터 추가
+    stop = inpu('종료하시려면 네를 입력하십시오 : ')
+    if stop == '네':
         break
     print()

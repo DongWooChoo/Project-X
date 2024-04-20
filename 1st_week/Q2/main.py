@@ -12,14 +12,14 @@ def transform_list(inputfile,list_log) :
             for i in range(0,len(line)):
                 line_list.append(line[i])
             list_log.append(line_list) # 한 줄의 정보가 담긴 리스트 객체를 넣음
-    print("로그 리스트 출력")
+    print('로그 리스트 출력')
     for i in range(len(log_list)): # 리스트에 있는 정보를 한 줄씩 읽음
         print(log_list[i])
     return list_log
 
 def reverse_list(list_log):
     log_reverse_list = sorted(log_list, key=lambda x: x[0], reverse=True) # 역순 정렬 list안에 있는 list의 0번째 값은 날짜 정보
-    print("로그 리스트 역순 출력")
+    print('로그 리스트 역순 출력')
     for i in range(len(log_reverse_list)): # 리스트에 있는 정보를 한 줄씩 읽음
         print(log_reverse_list[i])
 

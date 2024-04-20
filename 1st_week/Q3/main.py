@@ -34,7 +34,7 @@ def transform_csv(list_dangerous,outputfile):
 try :
     inputfile = open('C:/Users/ehddn/project-x/1st_week/Q3/Mars_Base_Inventory_List.csv', 'r')
     outputfile = open('C:/Users/ehddn/project-x/1st_week/Q3/Mars_Base_Inventory_danger.csv', 'w')
-    binoutputfile = open('C:/Users/ehddn/project-x/1st_week/Q3/Mars_Base_Inventory_List.bin', 'w')
+    #binoutputfile = open('C:/Users/ehddn/project-x/1st_week/Q3/Mars_Base_Inventory_List.bin', 'w')
 except FileNotFoundError :
     print('파일이 존재하지 않습니다')
 else :
@@ -48,4 +48,4 @@ else :
     transform_csv(list_dangerous,outputfile)
     inputfile.close()
     outputfile.close()
-    binoutputfile.close()
+    #binoutputfile.close()
