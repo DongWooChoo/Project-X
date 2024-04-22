@@ -34,7 +34,7 @@ while(True):
         print('올바르지 않은 값입니다. 다시 입력하세요 ')
         continue
     sphere_area(diameter,material) # 두께는 값 추가시 파리미터 추가
-    stop = inpu('종료하시려면 네를 입력하십시오 : ')
+    stop = input('종료하시려면 네를 입력하십시오 : ')
     if stop == '네':
         break
     print()

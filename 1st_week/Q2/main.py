@@ -1,4 +1,4 @@
-def transform_list(inputfile,list_log) :
+def transform_list(inputfile,list_log) : #리스트로 변경하는 함수
     i = 0
     while True :
         line = inputfile.readline() # 한 줄 단위로 읽음
@@ -17,18 +17,16 @@ def transform_list(inputfile,list_log) :
         print(log_list[i])
     return list_log
 
-def reverse_list(list_log):
+def reverse_list(list_log): # 리스트를 역순으로 정렬하는 함수
     log_reverse_list = sorted(log_list, key=lambda x: x[0], reverse=True) # 역순 정렬 list안에 있는 list의 0번째 값은 날짜 정보
-    print('로그 리스트 역순 출력')
-    for i in range(len(log_reverse_list)): # 리스트에 있는 정보를 한 줄씩 읽음
-        print(log_reverse_list[i])
+    return log_reverse_list
 
-def transfrom_dict(log_list,log_dict,outputfile): #미완성
+def transfrom_dict(log_list,log_dict,outputfile): # 로그 리스트를 딕셔너리 형태로 변환한 후 파일로 출력하는 함수
     for i in range(len(log_list)): # 로그에 있는 각 줄의 정보를 '키' : '라인넘버', '값' : '정보'의 형태로 추가
         log_dict[i] = log_list[i]
     # 딕셔너리 값을 json형태로 바꾸어서 저장
     outputfile.write('{\n') #\n은 다음 줄로
-    print(log_dict)
+    #print(log_dict)
     i = 0
     for key,value in log_dict.items():
         value = str(value).replace("['",'["')
@@ -52,6 +50,6 @@ else :
     log_dict = dict() # 딕셔너리 객체
     transform_list(inputfile,log_list) # 로그파일을 리스트로 변환
     ######################################    
-    reverse_list(log_list) # 로그 리스트를 역순으로 변환
+    log_list = reverse_list(log_list) # 로그 리스트를 역순으로 변환
     ######################################
     transfrom_dict(log_list,log_dict,outputfile) # 로그 리스트를 딕셔너리로 변환
