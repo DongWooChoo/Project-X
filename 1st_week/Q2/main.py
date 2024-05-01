@@ -24,6 +24,7 @@ def reverse_list(list_log): # 리스트를 역순으로 정렬하는 함수
 def transfrom_dict(log_list,log_dict,outputfile): # 로그 리스트를 딕셔너리 형태로 변환한 후 파일로 출력하는 함수
     for i in range(len(log_list)): # 로그에 있는 각 줄의 정보를 '키' : '라인넘버', '값' : '정보'의 형태로 추가
         log_dict[i] = log_list[i]
+    print(log_dict)
     # 딕셔너리 값을 json형태로 바꾸어서 저장
     outputfile.write('{\n') #\n은 다음 줄로
     #print(log_dict)

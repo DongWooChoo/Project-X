@@ -12,7 +12,8 @@ class MissionComputer:
             'mars_base_internal_oxygen' :str(random.randrange(4,8)) + '%' # 화성 기지 내부 산소 농도
         }    
     def get_sensor_data(self,env_values): #센서 데이터를 가져오는 함수
-        self.env_values = env_values
+        self.env_values = env_value
+        s
         return env_values
 ds = DummySensor()
 RunComputer = MissionComputer()

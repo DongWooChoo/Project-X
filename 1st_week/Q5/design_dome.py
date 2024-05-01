@@ -10,10 +10,11 @@ def read_file(filename): #파일을 읽어와서 array를 반환하는 함수
         return data
 
 def get_avg(parts):
+    print(parts)
     item_avg_list = []
     item_list = numpy.unique(parts[:, 0])  # 재료들의 리스트를 가져옴
     for item in item_list:
-        index = parts[:, 0] == item #해당 아이템에 해당하는 index를 가져옴 ex) 0,0,0,1,0,0,0,0,1
+        index = parts[:, 0] == item #해당 아이템에 해당하는 index를 가져옴 ex) 0,0,0,1,0,0,0,0,1\
         values = parts[index, 1].astype(int)  # 해당 인덱스의 값들을 가져옴
         average = numpy.mean(values)  # 평균 계산
         item_avg_list.append([item, average])
@@ -24,6 +25,7 @@ def save_item_file(item_avg_list,parts,file_name):
     save_list = []
     for i in range(len(item_avg_list)): #아이템 평균 값 리스트에서 50보다 작은 값만 따로 save_item_list에 추가
         if item_avg_list[i][1] < 50 :
+            print(item_avg_list[i][0])
             save_item_list.append(item_avg_list[i][0])
     for item in save_item_list:
         index = parts[:, 0] == item

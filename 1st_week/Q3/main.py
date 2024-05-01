@@ -24,6 +24,7 @@ def extract_list(list_inventory,list_dangerous) : #0.7 이상되는 목록을 �
 
 def transform_csv(list_dangerous,outputfile):
     for i in range(0,len(list_dangerous)): # 출력
+        print(str(list_dangerous[i]))
         line = str(list_dangerous[i])
         line = line.replace("[", "")
         line = line.replace("]","")
