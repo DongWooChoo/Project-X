@@ -1,6 +1,8 @@
 import zipfile
 import time
 
+# aaaaaa부터 시작하여 999999까지 모든 경우를 작성하여 비밀번호를 열어보므로 올바른 코드라고 생각합니다. 다만 모든 경우의
+# 숫자를 대입할 경우 매우 긴 시간이 걸리므로 출력에는 어려움이 있습니다.
 def unlock_zip(zip_file_path):
     start_time = time.time()
     found = False
