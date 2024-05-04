@@ -31,7 +31,7 @@ def unlock_zip(zip_file_path):
                                     except zipfile.BadZipFile:
                                         continue  # ZIP 파일 손상 무시
                                     except Exception as e:
-                                        print(f"Password 오류 '{password}': {e}")
+                                        print(f"Password 오류 '{password}'")
                             if found:
                                 break
                         if found:
