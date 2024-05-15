@@ -1,22 +1,143 @@
-# ì‚¬ê³  ì›ì¸ ë¶„ì„ ë³´ê³ ì„œ
-### ì§„í–‰ ê²½ê³¼
-ì‹œê°„ : 2023-08-27 10:00:00
-ë‚´ìš© : Rocket initialization process started.
-### ì§„í–‰ ê²½ê³¼
-ì‹œê°„ : 2023-08-27 10:20:00
-ë‚´ìš© : Final system checks complete. Rocket is ready for launch.
-### ì§„í–‰ ê²½ê³¼
-ì‹œê°„ : 2023-08-27 10:25:00
-ë‚´ìš© : Engine ignition sequence started.
-### ì§„í–‰ ê²½ê³¼
-ì‹œê°„ : 2023-08-27 11:15:00
-ë‚´ìš© : Reentry sequence started. Atmospheric drag noticeable.
-### ì§„í–‰ ê²½ê³¼
-ì‹œê°„ : 2023-08-27 11:30:00
-ë‚´ìš© : Mission completed successfully. Recovery team dispatched.
-### ì‚¬ê³  ë°œìƒ
-ì‹œê°„ : 2023-08-27 11:35:00
-ë‚´ìš© : Oxygen tank unstable.
-### ì‚¬ê³  ë°œìƒ
-ì‹œê°„ : 2023-08-27 11:40:00
-ë‚´ìš© : Oxygen tank explosion.
+### Á¤»ó
+½Ã°£: timestamp
+³»¿ë: message
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:00:00
+³»¿ë: Rocket initialization process started.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:02:00
+³»¿ë: Power systems online. Batteries at optimal charge.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:05:00
+³»¿ë: Communication established with mission control.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:08:00
+³»¿ë: Pre-launch checklist initiated.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:10:00
+³»¿ë: Avionics check: All systems functional.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:12:00
+³»¿ë: Propulsion check: Thrusters responding as expected.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:15:00
+³»¿ë: Life support systems nominal.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:18:00
+³»¿ë: Cargo bay secured and sealed properly.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:20:00
+³»¿ë: Final system checks complete. Rocket is ready for launch.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:23:00
+³»¿ë: Countdown sequence initiated.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:25:00
+³»¿ë: Engine ignition sequence started.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:27:00
+³»¿ë: Engines at maximum thrust. Liftoff imminent.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:30:00
+³»¿ë: Liftoff! Rocket has left the launchpad.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:32:00
+³»¿ë: Initial telemetry received. Rocket is on its trajectory.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:35:00
+³»¿ë: Approaching max-Q. Aerodynamic pressure increasing.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:37:00
+³»¿ë: Max-Q passed. Vehicle is stable.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:40:00
+³»¿ë: First stage engines throttled down as planned.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:42:00
+³»¿ë: Main engine cutoff confirmed. Stage separation initiated.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:45:00
+³»¿ë: Second stage ignition. Rocket continues its ascent.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:48:00
+³»¿ë: Payload fairing jettisoned. Satellite now exposed.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:50:00
+³»¿ë: Orbital insertion calculations initiated.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:52:00
+³»¿ë: Navigation systems show nominal performance.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:55:00
+³»¿ë: Second stage burn nominal. Rocket velocity increasing.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 10:57:00
+³»¿ë: Entering planned orbit around Earth.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:00:00
+³»¿ë: Orbital operations initiated. Satellite deployment upcoming.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:05:00
+³»¿ë: Satellite deployment successful. Mission objectives achieved.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:10:00
+³»¿ë: Initiating deorbit maneuvers for rocket's reentry.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:15:00
+³»¿ë: Reentry sequence started. Atmospheric drag noticeable.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:20:00
+³»¿ë: Heat shield performing as expected during reentry.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:25:00
+³»¿ë: Main parachutes deployed. Rocket descent rate reducing.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:28:00
+³»¿ë: Touchdown confirmed. Rocket safely landed.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 11:30:00
+³»¿ë: Mission completed successfully. Recovery team dispatched.
+
+### ¹®Á¦¹ß»ı
+½Ã°£: 2023-08-27 11:35:00
+¿øÀÎ: Oxygen tank unstable.
+
+### ¹®Á¦¹ß»ı
+½Ã°£: 2023-08-27 11:40:00
+¿øÀÎ: Oxygen tank explosion.
+
+### Á¤»ó
+½Ã°£: 2023-08-27 12:00:00
+³»¿ë: Center and mission control systems powered down.

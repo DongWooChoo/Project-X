@@ -7,7 +7,7 @@ def unlock_zip(zip_file_path):
     start_time = time.time()
     found = False
     total_attempts = 0
-    valid = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    valid = 'mabcdefghijklnopqrstuvwxyz0123456789'
     password_file = open('C:/Users/ehddn/project-x/2st_week/Q1/password.txt', 'w')  # 파일을 한 번 열고 유지
 
     try:
