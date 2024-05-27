@@ -1,91 +1,47 @@
-import os
-from PIL import Image, ImageTk
-import tkinter as tk
 import cv2
+import os
 
-# 파일에 있는 이미지들을 반환하는 함수
-def get_image_files(folder):
-    print(f'Scanning folder: {folder}')
-    files = [os.path.join(folder, file) for file in os.listdir(folder) if file.lower().endswith(('.png', '.jpg', '.jpeg'))]
-    print(f'Found image files: {files}')
-    return files
+# 파일 이름이 이미지 파일인지 확인하는 함수
+def is_image_file(filename):
+    return filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif'))
 
-# 사람을 감지하는 함수
-def detect_person(image_path):
-    print(f'Detecting person in image: {image_path}')
-    # OpenCV의 사전 훈련된 사람 탐지기를 로드합니다.
-    person_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fullbody.xml')
-    
-    if person_cascade.empty():
-        print("Failed to load Haar Cascade. Please check the path to 'haarcascade_fullbody.xml'")
-        return False
-    
-    # 이미지를 읽고 회색조로 변환합니다.
-    image = cv2.imread(image_path)
-    if image is None:
-        print(f'Failed to load image: {image_path}')
-        return False
-    
-    # 이미지를 리사이즈하여 감지 성능을 높입니다.
-    image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    
-    # 사람을 감지합니다.
-    people = person_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-    
-    if len(people) > 0:
-        print(f'Detected {len(people)} person(s) in image: {image_path}')
-    else:
-        print(f'No person detected in image: {image_path}')
-    
-    return len(people) > 0
+# 지정된 폴더에서 이미지를 로드하는 함수
+def load_images_from_folder(folder):
+    images = []
+    for filename in os.listdir(folder):  # 폴더 내 모든 파일을 순회
+        if is_image_file(filename):  # 이미지 파일인지 확인
+            img = cv2.imread(os.path.join(folder, filename))  # 이미지 파일 읽기
+            if img is not None:  # 이미지가 유효한 경우
+                images.append((filename, img))  # 파일 이름과 이미지를 리스트에 추가
+    return images
 
-# 현재 이미지를 업데이트하는 함수
-def update_image():
-    global img_label, img_files, current_img
-    print(f'Updating image to: {img_files[current_img]}')
-    img = Image.open(img_files[current_img])
-    img = ImageTk.PhotoImage(img)
-    img_label.config(image=img)
-    img_label.image = img
+# 이미지에서 사람을 감지하는 함수
+def detect_person(image):
+    hog = cv2.HOGDescriptor()  # HOGDescriptor 객체 생성
+    hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())  # 사람 감지기를 설정
+    (regions, _) = hog.detectMultiScale(image, winStride=(4, 4), padding=(4, 4), scale=1.05)  # 사람 감지
+    return regions  # 감지된 영역 반환
 
-# 엔터키로 다음 이미지를 검색하는 함수
-def search_next_image(event):
-    global current_img
-    while current_img < len(img_files):
-        if detect_person(img_files[current_img]):
-            update_image()
-            current_img += 1
-            return
-        current_img += 1
-    print('검색이 끝났습니다.')
-    root.quit()
+# 메인 함수
+def main():
+    folder = 'path_to_cctv_images_folder'  # CCTV 이미지 폴더 경로 설정
+    images = load_images_from_folder(folder)  # 폴더에서 이미지 로드
+    if not images:  # 이미지가 없는 경우
+        print('No images found in the specified folder.')  # 이미지가 없다는 메시지 출력
+        return
 
-# 메인 프로그램
+    for filename, img in images:  # 로드된 모든 이미지를 순회
+        regions = detect_person(img)  # 이미지에서 사람 감지
+        for (x, y, w, h) in regions:  # 감지된 영역에 대해
+            cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 2)  # 빨간색 사각형 그리기
+
+        cv2.imshow('Image', img)  # 이미지를 화면에 표시
+        print(f'Displaying {filename}. Press Enter to continue...')  # 사용자에게 Enter 키를 누르라는 메시지 출력
+        cv2.waitKey(0)  # 키 입력 대기
+
+    print('Search completed.')  # 모든 이미지 검색 완료 메시지 출력
+    cv2.destroyAllWindows()  # 모든 창 닫기
+
+# 프로그램 시작점
 if __name__ == '__main__':
-    # 업로드된 이미지 파일 경로
-    extract_to = 'C:/Users/ehddn/project-x/2st_week/Q9/cctv'
-    
-    # 이미지 파일 목록 가져오기
-    img_files = get_image_files(extract_to)
-    
-    if not img_files:
-        print('이미지 파일이 없습니다.')
-        exit()
-
-    current_img = 0
-
-    # GUI 설정
-    root = tk.Tk()
-    root.title('CCTV Viewer')
-
-    img_label = tk.Label(root)
-    img_label.pack()
-
-    # 엔터키 바인딩
-    root.bind('<Return>', search_next_image)
-
-    # 첫 번째 검색 시작
-    search_next_image(None)
-
-    root.mainloop()
+    main()  # 메인 함수 실행

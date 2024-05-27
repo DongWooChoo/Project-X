@@ -11,7 +11,7 @@ def makeRock(img,map_file):
     map_df = pd.read_csv(map_file, sep=',')
     map_rock_index = map_df['mountain'] == 1
     map_rock_df = map_df[map_rock_index]
-    for x,y in zip(map_rock_df['x'],map_rock_df['y']):
+    for x,y in zip(map_rock_df['y'],map_rock_df['x']):
         cv2.circle(img,(x * 50,y * 50),30,(42, 42, 165)) # 위치, 반지름,색상
     
 def makeStruct(img,category_file,struct_file):
@@ -21,7 +21,7 @@ def makeStruct(img,category_file,struct_file):
     struct_df_index = (struct_df_temp['struct'] == 'U.S. Mars Base Camp') | (struct_df_temp['struct'] == 'Korea Mars Base')
     struct_df_filtered = struct_df_temp[struct_df_index]
     
-    for x,y in zip(struct_df_filtered['x'],struct_df_filtered['y']):
+    for x,y in zip(struct_df_filtered['y'],struct_df_filtered['x']):
                 # 삼각형의 세 꼭짓점 좌표 계산
         center = (x * 50, y * 50)
         pt1 = (center[0], center[1] - 25)  # 위쪽 꼭짓점
@@ -38,3 +38,5 @@ makeStruct(img,'C:/Users/ehddn/project-x/3st_week/Q1/area_category.csv','C:/User
 cv2.imshow("image", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# 보너스 과제는 진행하지 않았습니다.
